@@ -1,0 +1,17 @@
+# Doxygen configuration template.
+# CMake fills in @LRU_SOURCE_DIR@ and friends via configure_file().
+
+PROJECT_NAME           = "lru_cache"
+PROJECT_NUMBER         = @PROJECT_VERSION@
+PROJECT_BRIEF          = "Small thread-safe LRU cache"
+OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@/docs/html
+INPUT                  = @LRU_SOURCE_DIR@/include @LRU_SOURCE_DIR@/README.md
+RECURSIVE              = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES
+HTML_OUTPUT            = .

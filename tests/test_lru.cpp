@@ -75,7 +75,10 @@ TEST(LruCache, ClearDropsEntriesButKeepsStats) {
 }
 
 TEST(LruCache, ConcurrentAccessKeepsInvariants) {
-    lru::LruCache<int, int> cache(64);
+    // Capacity covers the whole key space on purpose: this test checks the
+    // locking, not the eviction policy (eviction under concurrency would make
+    // the expected value racy by design).
+    lru::LruCache<int, int> cache(512);
     std::atomic<int> failures{0};
     constexpr int kThreads = 4;
     constexpr int kOps = 2000;

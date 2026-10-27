@@ -44,6 +44,7 @@ jobs:
   docs:
     name: Build and publish docs
     needs: build-test-benchmark
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

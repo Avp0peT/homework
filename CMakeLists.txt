@@ -37,8 +37,10 @@ if(LRU_BUILD_TESTS)
   enable_testing()
   add_executable(lru_tests tests/test_lru.cpp)
   target_link_libraries(lru_tests PRIVATE lru GTest::gtest_main)
-  include(GoogleTest)
-  gtest_discover_tests(lru_tests)
+  # A single CTest entry instead of gtest_discover_tests(): discovery has to
+  # spawn the freshly built binary, which is fragile on Windows and in CI
+  # sandboxes. gtest still reports per-test results in its own output.
+  add_test(NAME lru_tests COMMAND lru_tests)
 endif()
 
 if(LRU_BUILD_BENCHMARKS)

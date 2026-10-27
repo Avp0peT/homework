@@ -4,7 +4,7 @@ A small, header-only, thread-safe LRU cache written in C++20, with unit tests,
 micro-benchmarks, generated API documentation and a GitHub Actions pipeline that
 builds, tests, benchmarks and publishes the docs on every push.
 
-**Documentation:** https://<your-user>.github.io/<your-repo>/  ← replace after the first deploy
+**Documentation:** https://avp0pet.github.io/homework/
 
 ## What it does
 
